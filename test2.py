@@ -13,15 +13,15 @@ def login(name ,passwd):
     else:
         print("logged in\n")
         while(1):
-            action = int(input("what do you want to do:\n1:balance\n2:deposit\n3:withdrawl\n4:transfer\n"))
+            action = int(input("what do you want to do:\n1:balance\n2:deposit\n3:withdraw\n4:transfer\n"))
             if action==1:
                 balance(name)
             elif action==2:
                 amount = input("how much do you want to deposit?\n")
                 depo(name ,amount)
             elif action==3:
-                with_amount = input("how much do you want to withdrawl?\n")
-                withdrawl(name ,with_amount)
+                with_amount = input("how much do you want to withdraw?\n")
+                withdraw(name ,with_amount)
             elif action==4:
                 rec = input("who do you wish to transfer to?\n")
                 trans_amount = input("how much do you want to transfer to?\n")
@@ -29,8 +29,8 @@ def login(name ,passwd):
             else:
                 return
 
-def withdrawl(user ,amount):
-    #withdrawl money
+def withdraw(user ,amount):
+    #withdraw money
     response = requests.get('http://localhost:8000/account?name={}&act=with&amount={}'.format(user ,amount))
     if response.json()['message'] == 'true':
         print("action done\n")
