@@ -1,6 +1,6 @@
 import tornado.ioloop
 import tornado.web
-import torndb
+import tornado
 import sqlite3
 from sqlite3 import Error
 import tornado.auth
